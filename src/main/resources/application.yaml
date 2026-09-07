@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: Gateway-Service
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+          - id: servicio1
+            uri: lb://SALUDO-SERVICE
+            predicates:
+            - Path=/say/saludo/**
+          - id: servicio2
+            uri: lb://REST-EMPLOYEE
+            predicates:
+              - Path=/api/employee/**
+          - id: servicio3
+            uri: lb://REST-CUENTA
+            predicates:
+              - Path=/api/cuenta/**
+
+server:
+  port: 8082
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+jwt:
+  secret: "5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437"
