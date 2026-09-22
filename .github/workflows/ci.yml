@@ -32,5 +32,5 @@ jobs:
     - name: Analisis con SonarCloud
       env: 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -DskipTests -Dsonar.organization=roberth1982trujillo -Dsonar.projectKey=roberth1982trujillo_Gateway-Service
